@@ -50,5 +50,10 @@ namespace RedeSocialSociavel
             Admin admin = new Admin();
             admin.ShowDialog();
         }
+
+        private void lblNome_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

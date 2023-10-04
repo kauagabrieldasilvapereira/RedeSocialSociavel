@@ -49,6 +49,7 @@
             this.lblNome.Size = new System.Drawing.Size(38, 13);
             this.lblNome.TabIndex = 3;
             this.lblNome.Text = "Nome ";
+            this.lblNome.Click += new System.EventHandler(this.lblNome_Click);
             // 
             // lblPront
             // 
