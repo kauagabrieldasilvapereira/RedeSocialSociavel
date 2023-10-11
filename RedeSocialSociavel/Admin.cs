@@ -118,22 +118,19 @@ namespace RedeSocialSociavel
             //chamando método de exclusão
 
             UserDAO userDAO = new UserDAO();
-            userDAO.DelelteUser();
+            userDAO.DelelteUser(id);
 
             //limpando campos
-                txbNome.Clear();
-                txbSenha.Clear();
-                txbPront.Clear();
+            txbNome.Clear();
+            txbSenha.Clear();
+            txbPront.Clear();
             //atualizando listview
-                UpdateListView();
-            }
-
+            UpdateListView();
         }
 
-        private void lblNome_Click(object sender, EventArgs e)
-        {
-
-        }
     }
+
+
+}
 
 

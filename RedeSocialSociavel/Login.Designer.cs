@@ -75,6 +75,7 @@
             this.txbNome.Name = "txbNome";
             this.txbNome.Size = new System.Drawing.Size(100, 20);
             this.txbNome.TabIndex = 6;
+            this.txbNome.TextChanged += new System.EventHandler(this.txbNome_TextChanged);
             // 
             // btnsent
             // 

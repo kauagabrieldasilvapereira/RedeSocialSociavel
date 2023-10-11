@@ -86,7 +86,7 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Black;
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(614, 190);
+            this.label1.Location = new System.Drawing.Point(634, 190);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(41, 13);
             this.label1.TabIndex = 17;
@@ -142,14 +142,13 @@
             // lblNome
             // 
             this.lblNome.AutoSize = true;
-            this.lblNome.BackColor = System.Drawing.Color.GhostWhite;
-            this.lblNome.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblNome.Location = new System.Drawing.Point(611, 112);
+            this.lblNome.BackColor = System.Drawing.Color.Black;
+            this.lblNome.ForeColor = System.Drawing.Color.Transparent;
+            this.lblNome.Location = new System.Drawing.Point(637, 112);
             this.lblNome.Name = "lblNome";
             this.lblNome.Size = new System.Drawing.Size(38, 13);
             this.lblNome.TabIndex = 11;
             this.lblNome.Text = "Nome ";
-            this.lblNome.Click += new System.EventHandler(this.lblNome_Click);
             // 
             // button1
             // 

@@ -8,6 +8,7 @@ namespace RedeSocialSociavel
 {
     internal class User
     {
+        private int _id;
         private string _nome;
         private string _email;
         private string _senha;
@@ -16,28 +17,64 @@ namespace RedeSocialSociavel
                     string senha)
         {
 
-            Nome = _nome;
-            Email = _email;
-            Senha = _senha;
+            Nome = nome;
+            Email = email;
+            Senha = senha;
+        }
+        public User(int id, string nome,
+                   string email,
+                   string senha)
+        {
+            Id = id;
+
+            Nome = nome;
+            Email = email;
+            Senha = senha;
+        }
+        public int Id
+        {
+            set
+            {
+                _id = value;
+            }
+            get { return _id; }
+
         }
 
         public string Nome
         {
-            set { Nome = value; }
+            set {
+                if (string.IsNullOrEmpty(value))
+                    throw new Exception("O campo nome está vazio");
+
+                    _nome = value; 
+            }
             get { return _nome; }
 
         }
 
         public string Email
         {
-            set { Email = value; }
+            set {
+
+                if (string.IsNullOrEmpty(value))
+                    throw new Exception("O campo email está vazio"); 
+                
+                _email = value; 
+            }
             get { return _email; }
 
         }
 
         public string Senha
         {
-            set { Senha = value; }
+            set {
+
+                if (string.IsNullOrEmpty(value))
+                    throw new Exception("O campo senha está vazio"); 
+                
+               _senha = value; 
+            }
             get { return _senha; }
 
         }

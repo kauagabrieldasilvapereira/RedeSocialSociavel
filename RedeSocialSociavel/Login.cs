@@ -21,22 +21,30 @@ namespace RedeSocialSociavel
 
         private void btnsent_Click(object sender, EventArgs e)
         {
-            Conection conection = new Conection();
-            SqlCommand sqlComand = new SqlCommand();
+            try
+            {
+                //Criar objeto da classe User
+                User user = new User(
+                 txbNome.Text,
+                 txbPront.Text,
+                 txbSenha.Text
+                 );
+               
+                //Chamando o método da classe User
+                UserDAO userDAO = new UserDAO();
+                userDAO.InsertUser(user);
 
-            sqlComand.Connection = conection.ReturnConnection();
-            sqlComand.CommandText = @"INSERT INTO login VALUES (@nome, @email, @senha)";
+                MessageBox.Show("Cadastro com sucesso",
+                    "AVISO",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
 
-            sqlComand.Parameters.AddWithValue("@nome", txbNome.Text);
-            sqlComand.Parameters.AddWithValue("@email", txbPront.Text);
-            sqlComand.Parameters.AddWithValue("@senha", txbSenha.Text);
+            }
+            catch (Exception error)
 
-            sqlComand.ExecuteNonQuery();
-
-            MessageBox.Show("Cadastro com sucesso)",
-                "AVISO",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Information);
+            {
+                MessageBox.Show(error.Message);
+            }
 
             txbNome.Clear();
             txbPront.Clear();
@@ -52,6 +60,11 @@ namespace RedeSocialSociavel
         }
 
         private void lblNome_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txbNome_TextChanged(object sender, EventArgs e)
         {
 
         }
