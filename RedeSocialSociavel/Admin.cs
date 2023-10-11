@@ -23,41 +23,23 @@ namespace RedeSocialSociavel
         private void UpdateListView()
         {
             listadmin.Items.Clear();
-
-            Conection conn = new Conection();
-            SqlCommand sqlCom = new SqlCommand();
-
-            sqlCom.Connection = conn.ReturnConnection();
-            sqlCom.CommandText = "SELECT * FROM login";
-
+            UserDAO userDAO = new UserDAO();
+            List<User> users = userDAO.SelectUser();
+            
             try
             {
-                SqlDataReader dr = sqlCom.ExecuteReader();
-
-                //Enquanto for possível continuar a leitura das linhas que foram retornadas na consulta, execute.
-                while (dr.Read())
+                foreach (User user in users)
                 {
-                    int id = (int)dr["id"];
-                    string name = (string)dr["nnCliente"];
-                    string email = (string)dr["emailCliente"];
-                    string pass = (string)dr["senhaCliente"];
-
-                    ListViewItem lv = new ListViewItem(id.ToString());
-                    lv.SubItems.Add(name);
-                    lv.SubItems.Add(email);
-                    lv.SubItems.Add(pass);
+                    ListViewItem lv = new ListViewItem(user.Id.ToString));
+                    lv.SubItems.Add(user.Nome);
+                    lv.SubItems.Add(user.Email);
+                    lv.SubItems.Add(user.Senha);
                     listadmin.Items.Add(lv);
-
                 }
-                dr.Close();
             }
             catch (Exception err)
             {
                 MessageBox.Show(err.Message);
-            }
-            finally
-            {
-                conn.CloseConnection();
             }
         }
 
