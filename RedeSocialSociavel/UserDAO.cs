@@ -12,8 +12,8 @@ namespace RedeSocialSociavel
 {
     internal class UserDAO
     {
-
-        public List<User> SelectUser()
+       
+    public List<User> SelectUser()
         {
 
             Conection conn = new Conection();
@@ -38,7 +38,7 @@ namespace RedeSocialSociavel
                     (string)dr["senhaCliente"]
                     );
 
-                    users.Add(objeto);  
+                    users.Add(objeto);
                 }
                 dr.Close();
                 return users;//retornar a lista
@@ -54,46 +54,86 @@ namespace RedeSocialSociavel
             return null;
         }
 
-        public void InsertUser(User user)
+        
 
+    public void InsertUser(User user)
+
+    {
+        Conection conection = new Conection();
+        SqlCommand sqlComand = new SqlCommand();
+
+        sqlComand.Connection = conection.ReturnConnection();
+        sqlComand.CommandText = @"INSERT INTO login VALUES (@nome, @email, @senha)";
+
+        sqlComand.Parameters.AddWithValue("@nome", user.Nome);
+        sqlComand.Parameters.AddWithValue("@email", user.Email);
+        sqlComand.Parameters.AddWithValue("@senha", user.Senha);
+
+        sqlComand.ExecuteNonQuery();
+    }
+
+    public void DelelteUser(int id)
+    {
+
+        Conection connection = new Conection();
+        SqlCommand sqlCommand = new SqlCommand();
+
+        sqlCommand.Connection = connection.ReturnConnection();
+        sqlCommand.CommandText = @"DELETE FROM login WHERE Id = @id";
+        sqlCommand.Parameters.AddWithValue("@id", id);
+        try
         {
-            Conection conection = new Conection();
-            SqlCommand sqlComand = new SqlCommand();
-
-            sqlComand.Connection = conection.ReturnConnection();
-            sqlComand.CommandText = @"INSERT INTO login VALUES (@nome, @email, @senha)";
-
-            sqlComand.Parameters.AddWithValue("@nome", user.Nome);
-            sqlComand.Parameters.AddWithValue("@email", user.Email);
-            sqlComand.Parameters.AddWithValue("@senha", user.Senha);
-
-            sqlComand.ExecuteNonQuery();
+            sqlCommand.ExecuteNonQuery();
+        }
+        catch (Exception err)
+        {
+            throw new Exception("Erro: Problemas ao excluir usuário no banco.\n" + err.Message);
+        }
+        finally
+        {
+            connection.CloseConnection();
         }
 
-        public void DelelteUser(int id)
+    }
+
+        public bool LoginUser(string email, string senha)
         {
 
-            Conection connection = new Conection();
-            SqlCommand sqlCommand = new SqlCommand();
+            {
+                Conection connection = new Conection();
+                SqlCommand sqlCommand = new SqlCommand();
+                sqlCommand.Connection = connection.ReturnConnection();
+                sqlCommand.CommandText = "SELECT * FROM login WHERE + emailCliente = @email AND senhaCliente = @senha";
 
-            sqlCommand.Connection = connection.ReturnConnection();
-            sqlCommand.CommandText = @"DELETE FROM login WHERE Id = @id";
-            sqlCommand.Parameters.AddWithValue("@id", id);
-            try
-            {
-                sqlCommand.ExecuteNonQuery();
+                sqlCommand.Parameters.AddWithValue("@email", email);
+                sqlCommand.Parameters.AddWithValue("@senha", senha);
+                try
+                {
+                    SqlDataReader dr = sqlCommand.ExecuteReader();
+                    if (dr.HasRows)
+                    {
+
+                        dr.Close();
+                        return true;
+                    }
+                    dr.Close();
+                }
+                catch (Exception err)
+                {
+                    MessageBox.Show(err.Message);
+                }
+                finally
+                {
+                    connection.CloseConnection();
+                }
+                return false;
             }
-            catch (Exception err)
-            {
-                throw new Exception("Erro: Problemas ao excluir usuário no banco.\n" + err.Message);
-            }
-            finally
-            {
-                connection.CloseConnection();
-            }
+
 
         }
     }
 
 }
+
+
 

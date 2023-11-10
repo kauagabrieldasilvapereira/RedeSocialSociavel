@@ -28,20 +28,100 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.listadmin = new System.Windows.Forms.ListView();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.label1 = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
             this.txbSenha = new System.Windows.Forms.TextBox();
             this.btnsent = new System.Windows.Forms.Button();
             this.txbNome = new System.Windows.Forms.TextBox();
             this.txbPront = new System.Windows.Forms.TextBox();
             this.lblPront = new System.Windows.Forms.Label();
             this.lblNome = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.listadmin = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
+            // 
+            // button3
+            // 
+            this.button3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button3.Location = new System.Drawing.Point(612, 291);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 36;
+            this.button3.Text = "Excluir";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Black;
+            this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label4.Location = new System.Drawing.Point(629, 202);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(41, 13);
+            this.label4.TabIndex = 35;
+            this.label4.Text = "Senha ";
+            // 
+            // txbSenha
+            // 
+            this.txbSenha.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.txbSenha.Location = new System.Drawing.Point(602, 218);
+            this.txbSenha.Name = "txbSenha";
+            this.txbSenha.Size = new System.Drawing.Size(100, 20);
+            this.txbSenha.TabIndex = 34;
+            // 
+            // btnsent
+            // 
+            this.btnsent.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnsent.Location = new System.Drawing.Point(612, 244);
+            this.btnsent.Name = "btnsent";
+            this.btnsent.Size = new System.Drawing.Size(75, 23);
+            this.btnsent.TabIndex = 33;
+            this.btnsent.Text = "Cadastrar\r\n";
+            this.btnsent.UseVisualStyleBackColor = true;
+            this.btnsent.Click += new System.EventHandler(this.btnsent_Click_1);
+            // 
+            // txbNome
+            // 
+            this.txbNome.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.txbNome.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.txbNome.Location = new System.Drawing.Point(602, 140);
+            this.txbNome.Name = "txbNome";
+            this.txbNome.Size = new System.Drawing.Size(100, 20);
+            this.txbNome.TabIndex = 32;
+            // 
+            // txbPront
+            // 
+            this.txbPront.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.txbPront.Location = new System.Drawing.Point(602, 179);
+            this.txbPront.Name = "txbPront";
+            this.txbPront.Size = new System.Drawing.Size(100, 20);
+            this.txbPront.TabIndex = 31;
+            // 
+            // lblPront
+            // 
+            this.lblPront.AutoSize = true;
+            this.lblPront.BackColor = System.Drawing.Color.Black;
+            this.lblPront.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblPront.Location = new System.Drawing.Point(634, 163);
+            this.lblPront.Name = "lblPront";
+            this.lblPront.Size = new System.Drawing.Size(36, 13);
+            this.lblPront.TabIndex = 30;
+            this.lblPront.Text = "E-Mail";
+            // 
+            // lblNome
+            // 
+            this.lblNome.AutoSize = true;
+            this.lblNome.BackColor = System.Drawing.Color.Black;
+            this.lblNome.ForeColor = System.Drawing.Color.Transparent;
+            this.lblNome.Location = new System.Drawing.Point(632, 124);
+            this.lblNome.Name = "lblNome";
+            this.lblNome.Size = new System.Drawing.Size(38, 13);
+            this.lblNome.TabIndex = 29;
+            this.lblNome.Text = "Nome ";
             // 
             // listadmin
             // 
@@ -52,14 +132,12 @@
             this.columnHeader4});
             this.listadmin.FullRowSelect = true;
             this.listadmin.HideSelection = false;
-            this.listadmin.Location = new System.Drawing.Point(92, 81);
+            this.listadmin.Location = new System.Drawing.Point(98, 94);
             this.listadmin.Name = "listadmin";
             this.listadmin.Size = new System.Drawing.Size(443, 263);
-            this.listadmin.TabIndex = 0;
+            this.listadmin.TabIndex = 28;
             this.listadmin.UseCompatibleStateImageBehavior = false;
             this.listadmin.View = System.Windows.Forms.View.Details;
-            this.listadmin.SelectedIndexChanged += new System.EventHandler(this.listadmin_SelectedIndexChanged);
-            this.listadmin.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listadmin_MouseDoubleClick);
             // 
             // columnHeader1
             // 
@@ -81,94 +159,14 @@
             this.columnHeader4.Text = "Senha";
             this.columnHeader4.Width = 187;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Black;
-            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(634, 190);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(41, 13);
-            this.label1.TabIndex = 17;
-            this.label1.Text = "Senha ";
-            // 
-            // txbSenha
-            // 
-            this.txbSenha.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.txbSenha.Location = new System.Drawing.Point(607, 206);
-            this.txbSenha.Name = "txbSenha";
-            this.txbSenha.Size = new System.Drawing.Size(100, 20);
-            this.txbSenha.TabIndex = 16;
-            // 
-            // btnsent
-            // 
-            this.btnsent.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnsent.Location = new System.Drawing.Point(617, 232);
-            this.btnsent.Name = "btnsent";
-            this.btnsent.Size = new System.Drawing.Size(75, 23);
-            this.btnsent.TabIndex = 15;
-            this.btnsent.Text = "Cadastrar\r\n";
-            this.btnsent.UseVisualStyleBackColor = true;
-            this.btnsent.Click += new System.EventHandler(this.btnsent_Click);
-            // 
-            // txbNome
-            // 
-            this.txbNome.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.txbNome.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.txbNome.Location = new System.Drawing.Point(607, 128);
-            this.txbNome.Name = "txbNome";
-            this.txbNome.Size = new System.Drawing.Size(100, 20);
-            this.txbNome.TabIndex = 14;
-            // 
-            // txbPront
-            // 
-            this.txbPront.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.txbPront.Location = new System.Drawing.Point(607, 167);
-            this.txbPront.Name = "txbPront";
-            this.txbPront.Size = new System.Drawing.Size(100, 20);
-            this.txbPront.TabIndex = 13;
-            // 
-            // lblPront
-            // 
-            this.lblPront.AutoSize = true;
-            this.lblPront.BackColor = System.Drawing.Color.Black;
-            this.lblPront.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblPront.Location = new System.Drawing.Point(639, 151);
-            this.lblPront.Name = "lblPront";
-            this.lblPront.Size = new System.Drawing.Size(36, 13);
-            this.lblPront.TabIndex = 12;
-            this.lblPront.Text = "E-Mail";
-            // 
-            // lblNome
-            // 
-            this.lblNome.AutoSize = true;
-            this.lblNome.BackColor = System.Drawing.Color.Black;
-            this.lblNome.ForeColor = System.Drawing.Color.Transparent;
-            this.lblNome.Location = new System.Drawing.Point(637, 112);
-            this.lblNome.Name = "lblNome";
-            this.lblNome.Size = new System.Drawing.Size(38, 13);
-            this.lblNome.TabIndex = 11;
-            this.lblNome.Text = "Nome ";
-            // 
-            // button1
-            // 
-            this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button1.Location = new System.Drawing.Point(617, 279);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 18;
-            this.button1.Text = "Excluir";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // Admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.txbSenha);
             this.Controls.Add(this.btnsent);
             this.Controls.Add(this.txbNome);
@@ -178,6 +176,7 @@
             this.Controls.Add(this.listadmin);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Name = "Admin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "admin";
             this.Load += new System.EventHandler(this.admin_Load);
             this.ResumeLayout(false);
@@ -187,18 +186,18 @@
 
         #endregion
 
-        private System.Windows.Forms.ListView listadmin;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
-        private System.Windows.Forms.ColumnHeader columnHeader2;
-        private System.Windows.Forms.ColumnHeader columnHeader3;
-        private System.Windows.Forms.ColumnHeader columnHeader4;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txbSenha;
         private System.Windows.Forms.Button btnsent;
         private System.Windows.Forms.TextBox txbNome;
         private System.Windows.Forms.TextBox txbPront;
         private System.Windows.Forms.Label lblPront;
         private System.Windows.Forms.Label lblNome;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ListView listadmin;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
     }
 }

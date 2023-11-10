@@ -12,9 +12,12 @@ using System.Windows.Forms;
 
 namespace RedeSocialSociavel
 {
-    public partial class Login : Form
+
+   
+    public partial class Cadastro : Form
     {
-        public Login()
+        private int id;
+        public Cadastro()
         {
             InitializeComponent();
         }
@@ -25,16 +28,17 @@ namespace RedeSocialSociavel
             {
                 //Criar objeto da classe User
                 User user = new User(
+                 id,
                  txbNome.Text,
                  txbPront.Text,
                  txbSenha.Text
                  );
-               
+
                 //Chamando o método da classe User
                 UserDAO userDAO = new UserDAO();
                 userDAO.InsertUser(user);
 
-                MessageBox.Show("Cadastro com sucesso",
+                MessageBox.Show("Cadastrado com sucesso",
                     "AVISO",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
@@ -55,8 +59,7 @@ namespace RedeSocialSociavel
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Admin admin = new Admin();
-            admin.ShowDialog();
+           
         }
 
         private void lblNome_Click(object sender, EventArgs e)
@@ -68,5 +71,28 @@ namespace RedeSocialSociavel
         {
 
         }
+
+        private void txbSenha_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txbSenha_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
+            Admin Logar = new Admin();
+            Logar.ShowDialog();
+        }
     }
 }
+    
+

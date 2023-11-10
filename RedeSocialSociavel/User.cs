@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
-namespace RedeSocialSociavel
+namespace RedeSocialSociavel 
 {
+
     internal class User
     {
         private int _id;
@@ -43,24 +45,31 @@ namespace RedeSocialSociavel
 
         public string Nome
         {
-            set {
+            set
+            {
                 if (string.IsNullOrEmpty(value))
-                    throw new Exception("O campo nome está vazio");
-
-                    _nome = value; 
+                throw new Exception("O campo nome está vazio");
+                    
+                _nome = value;
             }
             get { return _nome; }
 
         }
 
+        private bool linkLabel1(bool v)
+        {
+            throw new NotImplementedException();
+        }
+
         public string Email
         {
-            set {
+            set
+            {
 
                 if (string.IsNullOrEmpty(value))
-                    throw new Exception("O campo email está vazio"); 
-                
-                _email = value; 
+                    throw new Exception("O campo email está vazio");
+
+                _email = value;
             }
             get { return _email; }
 
@@ -68,12 +77,13 @@ namespace RedeSocialSociavel
 
         public string Senha
         {
-            set {
+            set
+            {
 
                 if (string.IsNullOrEmpty(value))
-                    throw new Exception("O campo senha está vazio"); 
-                
-               _senha = value; 
+                    throw new Exception("O campo senha está vazio");
+
+                _senha = value;
             }
             get { return _senha; }
 

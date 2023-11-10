@@ -18,6 +18,7 @@ namespace RedeSocialSociavel
         public Admin()
         {
             InitializeComponent();
+            UpdateListView();
         }
 
         private void UpdateListView()
@@ -30,7 +31,7 @@ namespace RedeSocialSociavel
             {
                 foreach (User user in users)
                 {
-                    ListViewItem lv = new ListViewItem(user.Id.ToString));
+                    ListViewItem lv = new ListViewItem(user.Id.ToString());
                     lv.SubItems.Add(user.Nome);
                     lv.SubItems.Add(user.Email);
                     lv.SubItems.Add(user.Senha);
@@ -110,6 +111,15 @@ namespace RedeSocialSociavel
             UpdateListView();
         }
 
+        private void btnsent_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
 
