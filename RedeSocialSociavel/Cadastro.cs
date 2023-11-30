@@ -13,7 +13,7 @@ using System.Windows.Forms;
 namespace RedeSocialSociavel
 {
 
-   
+
     public partial class Cadastro : Form
     {
         private int id;
@@ -23,6 +23,7 @@ namespace RedeSocialSociavel
         }
 
         private void btnsent_Click(object sender, EventArgs e)
+            //esse botao serve para cadastrar o usuario
         {
             try
             {
@@ -55,11 +56,12 @@ namespace RedeSocialSociavel
             txbSenha.Clear();
             txbNome.Clear();
             txbNome.Clear();
+            Close();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-           
+
         }
 
         private void lblNome_Click(object sender, EventArgs e)
@@ -88,11 +90,17 @@ namespace RedeSocialSociavel
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-
-            Admin Logar = new Admin();
+            // a partir desse botao podemos voltar para a aba login(caso quisermos), pois assim que é cadastrado o usuario ele ja nos leva para la
+            Logar Logar = new Logar();
             Logar.ShowDialog();
+
+        }
+
+        private void txbPront_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
-    
+
 

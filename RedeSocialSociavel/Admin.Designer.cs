@@ -39,17 +39,16 @@
             this.listadmin = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button3
             // 
             this.button3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button3.Location = new System.Drawing.Point(612, 291);
+            this.button3.Location = new System.Drawing.Point(612, 285);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 36;
+            this.button3.TabIndex = 4;
             this.button3.Text = "Excluir";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
@@ -71,7 +70,7 @@
             this.txbSenha.Location = new System.Drawing.Point(602, 218);
             this.txbSenha.Name = "txbSenha";
             this.txbSenha.Size = new System.Drawing.Size(100, 20);
-            this.txbSenha.TabIndex = 34;
+            this.txbSenha.TabIndex = 2;
             // 
             // btnsent
             // 
@@ -79,7 +78,7 @@
             this.btnsent.Location = new System.Drawing.Point(612, 244);
             this.btnsent.Name = "btnsent";
             this.btnsent.Size = new System.Drawing.Size(75, 23);
-            this.btnsent.TabIndex = 33;
+            this.btnsent.TabIndex = 3;
             this.btnsent.Text = "Cadastrar\r\n";
             this.btnsent.UseVisualStyleBackColor = true;
             this.btnsent.Click += new System.EventHandler(this.btnsent_Click_1);
@@ -91,7 +90,8 @@
             this.txbNome.Location = new System.Drawing.Point(602, 140);
             this.txbNome.Name = "txbNome";
             this.txbNome.Size = new System.Drawing.Size(100, 20);
-            this.txbNome.TabIndex = 32;
+            this.txbNome.TabIndex = 0;
+            this.txbNome.TextChanged += new System.EventHandler(this.txbNome_TextChanged);
             // 
             // txbPront
             // 
@@ -99,7 +99,8 @@
             this.txbPront.Location = new System.Drawing.Point(602, 179);
             this.txbPront.Name = "txbPront";
             this.txbPront.Size = new System.Drawing.Size(100, 20);
-            this.txbPront.TabIndex = 31;
+            this.txbPront.TabIndex = 1;
+            this.txbPront.TextChanged += new System.EventHandler(this.txbPront_TextChanged);
             // 
             // lblPront
             // 
@@ -127,9 +128,7 @@
             // 
             this.listadmin.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
-            this.columnHeader2,
-            this.columnHeader3,
-            this.columnHeader4});
+            this.columnHeader2});
             this.listadmin.FullRowSelect = true;
             this.listadmin.HideSelection = false;
             this.listadmin.Location = new System.Drawing.Point(98, 94);
@@ -138,6 +137,8 @@
             this.listadmin.TabIndex = 28;
             this.listadmin.UseCompatibleStateImageBehavior = false;
             this.listadmin.View = System.Windows.Forms.View.Details;
+            this.listadmin.SelectedIndexChanged += new System.EventHandler(this.listadmin_SelectedIndexChanged_1);
+            this.listadmin.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listadmin_MouseDoubleClick);
             // 
             // columnHeader1
             // 
@@ -149,15 +150,15 @@
             this.columnHeader2.Text = "Nome";
             this.columnHeader2.Width = 106;
             // 
-            // columnHeader3
+            // button2
             // 
-            this.columnHeader3.Text = "E-mail";
-            this.columnHeader3.Width = 169;
-            // 
-            // columnHeader4
-            // 
-            this.columnHeader4.Text = "Senha";
-            this.columnHeader4.Width = 187;
+            this.button2.Location = new System.Drawing.Point(612, 325);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 36;
+            this.button2.Text = "PDF";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // Admin
             // 
@@ -165,6 +166,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txbSenha);
@@ -197,7 +199,6 @@
         private System.Windows.Forms.ListView listadmin;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
-        private System.Windows.Forms.ColumnHeader columnHeader3;
-        private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.Button button2;
     }
 }

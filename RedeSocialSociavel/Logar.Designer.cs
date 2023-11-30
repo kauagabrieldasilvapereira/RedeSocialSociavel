@@ -32,11 +32,11 @@
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.Senha = new System.Windows.Forms.TextBox();
-            this.Email = new System.Windows.Forms.TextBox();
+            this.Nome = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.label3 = new System.Windows.Forms.Label();
+            this.Senha = new System.Windows.Forms.MaskedTextBox();
             this.SuspendLayout();
             // 
             // button1
@@ -44,7 +44,7 @@
             this.button1.Location = new System.Drawing.Point(371, 268);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
+            this.button1.TabIndex = 2;
             this.button1.Text = "Login";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -58,7 +58,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(35, 13);
             this.label1.TabIndex = 2;
-            this.label1.Text = "E-mail";
+            this.label1.Text = "Nome";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
@@ -72,19 +72,13 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "Senha";
             // 
-            // Senha
+            // Nome
             // 
-            this.Senha.Location = new System.Drawing.Point(355, 221);
-            this.Senha.Name = "Senha";
-            this.Senha.Size = new System.Drawing.Size(100, 20);
-            this.Senha.TabIndex = 4;
-            // 
-            // Email
-            // 
-            this.Email.Location = new System.Drawing.Point(355, 155);
-            this.Email.Name = "Email";
-            this.Email.Size = new System.Drawing.Size(100, 20);
-            this.Email.TabIndex = 5;
+            this.Nome.Location = new System.Drawing.Point(355, 155);
+            this.Nome.Name = "Nome";
+            this.Nome.Size = new System.Drawing.Size(100, 20);
+            this.Nome.TabIndex = 0;
+            this.Nome.TextChanged += new System.EventHandler(this.Email_TextChanged_1);
             // 
             // button2
             // 
@@ -93,10 +87,10 @@
             this.button2.Location = new System.Drawing.Point(371, 415);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 13;
+            this.button2.TabIndex = 4;
             this.button2.Text = "Admin";
             this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.button2.Click += new System.EventHandler(this.button2_Click_1);
             // 
             // linkLabel1
             // 
@@ -105,11 +99,11 @@
             this.linkLabel1.Location = new System.Drawing.Point(444, 314);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(62, 17);
-            this.linkLabel1.TabIndex = 14;
+            this.linkLabel1.TabIndex = 3;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "Crie a sua !";
             this.linkLabel1.UseCompatibleTextRendering = true;
-            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked_1);
             // 
             // label3
             // 
@@ -122,6 +116,14 @@
             this.label3.TabIndex = 15;
             this.label3.Text = "Não possui uma conta ?";
             // 
+            // Senha
+            // 
+            this.Senha.Location = new System.Drawing.Point(355, 221);
+            this.Senha.Name = "Senha";
+            this.Senha.PasswordChar = '*';
+            this.Senha.Size = new System.Drawing.Size(100, 20);
+            this.Senha.TabIndex = 1;
+            // 
             // Logar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -129,11 +131,11 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.Senha);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.Email);
-            this.Controls.Add(this.Senha);
+            this.Controls.Add(this.Nome);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
@@ -141,6 +143,7 @@
             this.Name = "Logar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = " ";
+            this.Load += new System.EventHandler(this.Logar_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -150,10 +153,10 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox Senha;
-        private System.Windows.Forms.TextBox Email;
+        private System.Windows.Forms.TextBox Nome;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.MaskedTextBox Senha;
     }
 }

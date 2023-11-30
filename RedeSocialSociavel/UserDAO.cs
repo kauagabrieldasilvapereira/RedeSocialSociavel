@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,8 +13,9 @@ namespace RedeSocialSociavel
 {
     internal class UserDAO
     {
-       
-    public List<User> SelectUser()
+
+
+        public List<User> SelectUser()
         {
 
             Conection conn = new Conection();
@@ -53,48 +55,92 @@ namespace RedeSocialSociavel
             }
             return null;
         }
-
-        
-
-    public void InsertUser(User user)
-
-    {
-        Conection conection = new Conection();
-        SqlCommand sqlComand = new SqlCommand();
-
-        sqlComand.Connection = conection.ReturnConnection();
-        sqlComand.CommandText = @"INSERT INTO login VALUES (@nome, @email, @senha)";
-
-        sqlComand.Parameters.AddWithValue("@nome", user.Nome);
-        sqlComand.Parameters.AddWithValue("@email", user.Email);
-        sqlComand.Parameters.AddWithValue("@senha", user.Senha);
-
-        sqlComand.ExecuteNonQuery();
-    }
-
-    public void DelelteUser(int id)
-    {
-
-        Conection connection = new Conection();
-        SqlCommand sqlCommand = new SqlCommand();
-
-        sqlCommand.Connection = connection.ReturnConnection();
-        sqlCommand.CommandText = @"DELETE FROM login WHERE Id = @id";
-        sqlCommand.Parameters.AddWithValue("@id", id);
-        try
+        public void UpdateUser(User user)
         {
-            sqlCommand.ExecuteNonQuery();
-        }
-        catch (Exception err)
-        {
-            throw new Exception("Erro: Problemas ao excluir usuário no banco.\n" + err.Message);
-        }
-        finally
-        {
-            connection.CloseConnection();
+            using (SHA256 sha256 = SHA256.Create())
+            {
+                byte[] bytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(user.Senha));
+                StringBuilder sb = new StringBuilder();
+                foreach (byte b in bytes)
+                {
+                    sb.Append(b.ToString("x2"));
+                }
+                string SenhaCriptografada = sb.ToString();
+                Conection conn = new Conection();
+                SqlCommand sqlCom = new SqlCommand();
+
+                sqlCom.Connection = conn.ReturnConnection();
+                sqlCom.CommandText = @"UPDATE login SET 
+             nnCliente = @nome,
+             emailCliente = @email,
+             senhaCliente = @senha
+             WHERE id = @id"
+                ;
+
+                sqlCom.Parameters.AddWithValue("@nome", user.Nome);
+                sqlCom.Parameters.AddWithValue("@email", user.Email);
+                sqlCom.Parameters.AddWithValue("@senha", SenhaCriptografada);
+                sqlCom.Parameters.AddWithValue("@id", user.Id);
+
+
+                sqlCom.ExecuteNonQuery();
+            }
         }
 
-    }
+        public void InsertUser(User user)
+            //aqui ele faz a conversão da senha normal para a senha criptografada atraves do metodo SHA256
+        {
+
+            {
+                using (SHA256 sha256 = SHA256.Create())
+                {
+                    byte[] bytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(user.Senha));
+                    StringBuilder sb = new StringBuilder();
+                    foreach (byte b in bytes)
+                    {
+                        sb.Append(b.ToString("x2"));
+                    }
+                    string SenhaCriptografada = sb.ToString();
+
+                    Conection conection = new Conection();
+                    SqlCommand sqlComand = new SqlCommand();
+
+                    sqlComand.Connection = conection.ReturnConnection();
+                    sqlComand.CommandText = @"INSERT INTO login VALUES (@nome, @email, @senha)";
+
+                    sqlComand.Parameters.AddWithValue("@nome", user.Nome);
+                    sqlComand.Parameters.AddWithValue("@email", user.Email);
+                    sqlComand.Parameters.AddWithValue("@senha", SenhaCriptografada);
+
+                    sqlComand.ExecuteNonQuery();
+                }
+            }
+        }
+
+        public void DelelteUser(int id)
+            //aqui temos a aba para conseguirmos deletar algum usuario 
+        {
+
+            Conection connection = new Conection();
+            SqlCommand sqlCommand = new SqlCommand();
+
+            sqlCommand.Connection = connection.ReturnConnection();
+            sqlCommand.CommandText = @"DELETE FROM login WHERE Id = @id";
+            sqlCommand.Parameters.AddWithValue("@id", id);
+            try
+            {
+                sqlCommand.ExecuteNonQuery();
+            }
+            catch (Exception err)
+            {
+                throw new Exception("Erro: Problemas ao excluir usuário no banco.\n" + err.Message);
+            }
+            finally
+            {
+                connection.CloseConnection();
+            }
+
+        }
 
         public bool LoginUser(string email, string senha)
         {

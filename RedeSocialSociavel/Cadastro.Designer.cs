@@ -69,14 +69,15 @@
             this.txbPront.Location = new System.Drawing.Point(362, 174);
             this.txbPront.Name = "txbPront";
             this.txbPront.Size = new System.Drawing.Size(100, 20);
-            this.txbPront.TabIndex = 5;
+            this.txbPront.TabIndex = 1;
+            this.txbPront.TextChanged += new System.EventHandler(this.txbPront_TextChanged);
             // 
             // txbNome
             // 
             this.txbNome.Location = new System.Drawing.Point(362, 129);
             this.txbNome.Name = "txbNome";
             this.txbNome.Size = new System.Drawing.Size(100, 20);
-            this.txbNome.TabIndex = 6;
+            this.txbNome.TabIndex = 0;
             this.txbNome.TextChanged += new System.EventHandler(this.txbNome_TextChanged);
             // 
             // btnsent
@@ -85,7 +86,7 @@
             this.btnsent.Location = new System.Drawing.Point(373, 249);
             this.btnsent.Name = "btnsent";
             this.btnsent.Size = new System.Drawing.Size(75, 23);
-            this.btnsent.TabIndex = 7;
+            this.btnsent.TabIndex = 3;
             this.btnsent.Text = "Cadastrar";
             this.btnsent.UseVisualStyleBackColor = true;
             this.btnsent.Click += new System.EventHandler(this.btnsent_Click);
@@ -108,7 +109,7 @@
             this.txbSenha.Name = "txbSenha";
             this.txbSenha.PasswordChar = '*';
             this.txbSenha.Size = new System.Drawing.Size(99, 20);
-            this.txbSenha.TabIndex = 13;
+            this.txbSenha.TabIndex = 2;
             this.txbSenha.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.txbSenha_MaskInputRejected);
             // 
             // label3
@@ -139,7 +140,7 @@
             this.linkLabel1.Location = new System.Drawing.Point(370, 332);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(81, 16);
-            this.linkLabel1.TabIndex = 18;
+            this.linkLabel1.TabIndex = 4;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "Ir para Login";
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);

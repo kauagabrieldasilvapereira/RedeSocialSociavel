@@ -41,7 +41,7 @@
             this.button1.ForeColor = System.Drawing.Color.White;
             this.button1.Location = new System.Drawing.Point(33, 57);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(169, 150);
+            this.button1.Size = new System.Drawing.Size(169, 153);
             this.button1.TabIndex = 0;
             this.button1.Text = "Perfil";
             this.button1.UseVisualStyleBackColor = false;
@@ -59,6 +59,7 @@
             this.Name = "Tela_inicial";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tela_inicial";
+            this.Load += new System.EventHandler(this.Tela_inicial_Load);
             this.ResumeLayout(false);
 
         }

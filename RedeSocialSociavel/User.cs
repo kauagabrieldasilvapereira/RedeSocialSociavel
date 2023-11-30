@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -9,6 +10,7 @@ namespace RedeSocialSociavel
 {
 
     internal class User
+        //essa classe é responsavel pela validação dos campos para ver se eles estao preenchidos corretamentre 
     {
         private int _id;
         private string _nome;
@@ -62,9 +64,19 @@ namespace RedeSocialSociavel
         }
 
         public string Email
+            //aqui na classe user criei uma validação para o email no cadastro, onde se voce nao colocar o @gmail.com ele nao deixa voce criar 
+            //um email 
         {
             set
             {
+                try
+                {
+                    MailAddress m = new MailAddress(value);
+                }
+                catch(FormatException)
+                {
+                    throw new Exception("O campo email não está preenchido de maneira correta");
+                }
 
                 if (string.IsNullOrEmpty(value))
                     throw new Exception("O campo email está vazio");
