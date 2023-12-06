@@ -100,6 +100,17 @@ namespace RedeSocialSociavel
         {
 
         }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            endereco endereço = new endereco();
+            endereço.ShowDialog();
+        }
+
+        private void Cadastro_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

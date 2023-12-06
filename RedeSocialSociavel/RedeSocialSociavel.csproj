@@ -59,6 +59,12 @@
       <DependentUpon>Admin.cs</DependentUpon>
     </Compile>
     <Compile Include="Conection.cs" />
+    <Compile Include="endereco.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="endereco.Designer.cs">
+      <DependentUpon>endereco.cs</DependentUpon>
+    </Compile>
     <Compile Include="Logar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,11 +87,16 @@
     </Compile>
     <Compile Include="User.cs" />
     <Compile Include="UserDAO.cs" />
+    <Compile Include="UserEndereco.cs" />
+    <Compile Include="EnderecoDAO.cs" />
     <EmbeddedResource Include="Admin.resx">
       <DependentUpon>Admin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Cadastro.resx">
       <DependentUpon>Cadastro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="endereco.resx">
+      <DependentUpon>endereco.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Logar.resx">
       <DependentUpon>Logar.cs</DependentUpon>
